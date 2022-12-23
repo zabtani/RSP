@@ -1,0 +1,17 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "svgrrc",
+    "tanstack",
+    "testid",
+    "vitejs",
+    "vitest"
+  ],
+  "ignoreWords": [
+    "svgr"
+  ],
+  "import": []
+}
