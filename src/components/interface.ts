@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { MutableRefObject } from 'react';
 
 export enum Direction {
   L = 'left',
@@ -13,7 +13,8 @@ export const KIND = { rock, paper, scissors };
 export type Position = { x: number; y: number };
 export interface RspItem {
   direction: Direction;
-  id: number;
-  kind: '🧱' | '📄' | '✂️';
-  ref: any;
+  id: string;
+  kind: string;
+  ref: MutableRefObject<HTMLDivElement>;
+  speed: number;
 }
