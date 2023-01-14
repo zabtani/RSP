@@ -1,3 +1,5 @@
-const Main = () => <div>main</div>;
+import Rsp from 'components/Rsp';
+
+const Main = () => <Rsp />;
 
 export default Main;

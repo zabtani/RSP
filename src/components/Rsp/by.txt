@@ -1,0 +1,84 @@
+import styled from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
+
+type Position = { x: number; y: number };
+interface Cube {
+  position: { current: Position; target: Position };
+  content: string;
+}
+
+const Rsp = () => {
+  const boardEef = useRef<HTMLDivElement>(null);
+  const [cubes, setCubes] = useState<Cube[]>([
+    {
+      position: {
+        current: { x: 0, y: 0 },
+        target: { x: 50, y: 50 },
+      },
+      content: '📄',
+    },
+  ]);
+
+
+
+  return (
+    <MainContainer ref={boardEef}>
+      {cubes.map((cube) => (
+        <CubeItem data={cube} />
+      ))}
+    </MainContainer>
+  );
+};
+
+export default Rsp;
+
+interface XProps {
+  data: Cube;
+}
+
+const getOffset = (el: HTMLDivElement): Position => {
+  const rect = el.getBoundingClientRect();
+  return {
+    x: rect.left + window.scrollX + 100,
+    y: rect.top + window.scrollY + 100,
+  };
+};
+const CubeItem = ({ data }: XProps) => {
+  const [currentOffset, setOffset] = useState({ x: 0, y: 0 });
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (ref.current) {
+        const offset = getOffset(ref.current);
+        setOffset(offset);
+      } else {
+        setOffset({ x: 0, y: 0 });
+      }
+    }, 500);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [ref.current]);
+  const t = 1;
+  return (
+    <Square offset={currentOffset} ref={ref}>
+      {data.content}
+    </Square>
+  );
+};
+
+const Square = styled.div<{ offset: Position }>`
+  transition: transform 0.5s linear;
+  position: absolute;
+  transform: ${({ offset }) => `translate(${offset.x}%, ${offset.y}%)`};
+  // transform: ${({ offset }) => `translate(50%, 50%)`};
+`;
+
+const MainContainer = styled.div`
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`;

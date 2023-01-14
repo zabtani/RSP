@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     height: inherit;
+    height: 100vh;
+    width: 100vw;
   }
 
   *, *:before, *:after {
