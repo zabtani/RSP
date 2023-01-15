@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "vitest",
@@ -51,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.6.0",
+    "gh-pages": "^4.0.0",
     "jsdom": "20.0.2",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
