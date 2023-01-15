@@ -1,8 +1,16 @@
-import { RspItem } from 'components/interface';
+import { KIND, RspItem } from 'components/interface';
 import { getLoser } from 'components/Rsp/utils';
-import { useEffect, Dispatch, SetStateAction } from 'react';
+import { useEffect, Dispatch, SetStateAction, useState } from 'react';
 
 const useCheckCollision = (setItems: Dispatch<SetStateAction<RspItem[]>>, items: RspItem[]) => {
+  const [counts, setCounts] = useState<Record<any, number>>({
+    [KIND.paper]: 0,
+    [KIND.rock]: 0,
+    [KIND.scissors]: 0,
+  });
+
+  useEffect(() => {}, []);
+
   useEffect(() => {
     const trackPosition = (first: RspItem, sec: RspItem) => {
       const div1Rect = first.ref.current?.getBoundingClientRect();
@@ -32,6 +40,7 @@ const useCheckCollision = (setItems: Dispatch<SetStateAction<RspItem[]>>, items:
     };
 
     const intervalId = setInterval(() => {
+      count();
       items.forEach((item) => {
         items.forEach((comparedItem) => {
           if (item.id !== comparedItem.id) {
@@ -40,8 +49,24 @@ const useCheckCollision = (setItems: Dispatch<SetStateAction<RspItem[]>>, items:
         });
       });
     }, 50);
-    return () => clearInterval(intervalId);
+
+    const count = () => {
+      const currCount = items
+        .map((items) => items.kind)
+        .reduce((map, val) => {
+          const result = { ...map };
+          result[val] = (result[val] || 0) + 1;
+          return result;
+        }, {} as Record<any, number>);
+      setCounts(currCount);
+    };
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [items]);
+
+  return counts;
 };
 
 export default useCheckCollision;

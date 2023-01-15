@@ -29,7 +29,7 @@ export const getDirection = (el: HTMLDivElement, direction: Direction): Position
   const rect = el.getBoundingClientRect();
   const sides = {
     [Direction.R]: {
-      x: rect.width * 0.98,
+      x: rect.width * 0.96,
       y: random(0, rect.height),
     },
     [Direction.L]: {
@@ -38,7 +38,7 @@ export const getDirection = (el: HTMLDivElement, direction: Direction): Position
     },
     [Direction.D]: {
       x: random(0, rect.width),
-      y: rect.height * 0.98,
+      y: rect.height * 0.96,
     },
     [Direction.U]: {
       x: random(0, rect.width),

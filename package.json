@@ -20,6 +20,7 @@
     "react-game-kit": "^1.0.6",
     "react-router-dom": "6.4.3",
     "react-waypoint": "^10.3.0",
+    "serve": "^14.1.2",
     "styled-components": "5.3.6"
   },
   "devDependencies": {

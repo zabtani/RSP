@@ -3,13 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: overlay;
+    overflow: hidden;
     scroll-behavior: smooth;
+
 
   }
 
   #root {
+    overflow: hidden;
+
     height: inherit;
     height: 100vh;
     width: 100vw;
@@ -20,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
+
     margin: 0;
     background-color: #282c34;
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
@@ -27,6 +30,8 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+
   }
 
   a {
