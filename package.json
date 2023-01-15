@@ -1,5 +1,6 @@
 {
-  "name": "vite-project",
+  "homepage": "https://zabtani.github.io/RSP",
+  "name": "RSP",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
