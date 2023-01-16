@@ -1,10 +1,10 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import eslintPlugin from 'vite-plugin-eslint';
 import svgrPlugin from 'vite-plugin-svgr';
 import { VitePluginFonts } from 'vite-plugin-fonts';
+import { ghPages } from 'vite-plugin-gh-pages';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,13 +14,6 @@ export default defineConfig({
     react(),
     svgrPlugin({ svgrOptions: { configFile: '.svgrrc.json' } }),
     VitePluginFonts({ google: { families: ['Roboto'] } }),
+    ghPages(),
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/test/setup.ts',
-    coverage: {
-      exclude: ['./constants/config.ts'],
-    },
-  },
 });
