@@ -16,6 +16,18 @@
     "isready": "npm run lint && npm run format && npm run build && npm run test:run",
     "generate-icons": "npx @svgr/cli --config-file=.svgrrc.json ./src/assets/icons --out-dir=./src/icons"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
