@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b dev -e",
+    "deploy": "gh-pages -d dist -b dev",
     "serve": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -16,6 +16,9 @@
     "format": "prettier --write src/*.{tsx,ts}",
     "isready": "npm run lint && npm run format && npm run build && npm run test:run",
     "generate-icons": "npx @svgr/cli --config-file=.svgrrc.json ./src/assets/icons --out-dir=./src/icons"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.10"
   },
   "dependencies": {
     "gh-pages-cli": "^0.2.0",
