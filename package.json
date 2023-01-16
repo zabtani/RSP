@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b dev",
+    "deploy": "gh-pages -d dist -b gh-pages",
     "serve": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
