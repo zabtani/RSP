@@ -1,6 +1,6 @@
 {
-  "homepage": "https://zabtani.github.io/RSP",
-  "name": "RSP",
+  "homepage": "https://zabtani.github.io/rsp",
+  "name": "rsp",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -16,25 +16,10 @@
     "isready": "npm run lint && npm run format && npm run build && npm run test:run",
     "generate-icons": "npx @svgr/cli --config-file=.svgrrc.json ./src/assets/icons --out-dir=./src/icons"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-game-kit": "^1.0.6",
     "react-router-dom": "6.4.3",
-    "react-waypoint": "^10.3.0",
-    "serve": "^14.1.2",
     "styled-components": "5.3.6"
   },
   "devDependencies": {
